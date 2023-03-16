@@ -31,7 +31,7 @@ pipeline {
           }
         }
 
-      stage('Build Artifact') {
+      stage('sonaeqube') {
             steps {
               sh "mvn sonar:sonar -Dsonar.projectKey=numeric-app -Dsonar.host.url=http://devsecops.eastus.cloudapp.azure.com:9000 -Dsonar.login=f77d89463e3051536e5287c5bfa65be52698e58a" 
             }

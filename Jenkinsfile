@@ -30,7 +30,13 @@ pipeline {
             }
           }
         }
-        
+
+      stage('Build Artifact') {
+            steps {
+              sh "mvn sonar:sonar -Dsonar.projectKey=numeric-app -Dsonar.host.url=http://devsecops.eastus.cloudapp.azure.com:9000 -Dsonar.login=f77d89463e3051536e5287c5bfa65be52698e58a" 
+            }
+        }        
+
         stage('Docker Build and Push') {
           steps {
             withDockerRegistry([credentialsId: "dockerhubcred", url: ""]) {

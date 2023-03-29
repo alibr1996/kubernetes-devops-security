@@ -111,6 +111,13 @@ pipeline {
 //            }
 //          }
 //        }
+        stage("DAST scanning- OWASP ZAP") {
+          steps {
+            withKubeConfig([credentialsId: 'kubeconfig']) {
+              sh "bash zap.sh"
+            }
+          }
+        } 
 
     }
 
